@@ -1,0 +1,93 @@
+extends layout
+block head
+	link(rel='import' href=pathToPublic + 'bower_components/polymer/polymer.html')
+	link(rel="import" href=pathToPublic + "bower_components/core-image/core-image.html")
+
+block content
+	home-page
+	polymer-element(name="home-page" attributes="")
+		template
+			link(rel='stylesheet' href=pathToPublic + 'styles/page-style.css')
+			style.
+				.carouselTitle {
+					font-size: 60pt;
+					color:#1e1c1d;
+				}
+				#carousel {
+					margin-top:20px;
+					height: 400px;
+					position:relative;
+				}
+				.carouselImage {
+					width: 100%;
+					height:400px;
+					margin-bottom:-100px;
+				}
+				#worshipCarousel {
+					position:absolute;
+					bottom:20px;
+					left:50%;
+					text-align:center;
+				}
+				#navBlurb {
+					max-width: 150px;
+					font-family: "Trebuchet MS", Helvetica, sans-serif;
+					font-size: 8pt;
+				}
+				#navJoinUs {
+					font-weight: bold;
+				}
+				#navTime {
+					font-size: 8pt;
+					line-height: 10px;
+				}
+				#directions {
+					text-align:center;
+					font-size:10pt;
+					margin-top:15px;
+				}
+				#directionsLink {
+					font-size:10pt;
+					float:right;
+				}
+				.white {
+					color:white;
+				}
+				#bottomQuote {
+					padding:5px;
+					display:inline-block;
+					width:calc(100% - 205px);
+					font-size:24pt;
+					text-align:center;
+					font-weight:bold;
+					font-style:italic;
+				}
+			#carousel
+				core-image.carouselImage(src="/images/worship-hands.jpg" sizing='cover' preload fade position='50% 70%')
+				#worshipCarousel
+					h1.carouselTitle.white Worship
+					h2.carouselSubtitle.white Contemporary & Upbeat!
+			.content
+				#navbar
+					#navBlurb Are you turned off by religion? Jesus was…
+					a.navLink(href="/visit") My First Visit
+					a.navLink(href="/messages") Message Archive
+					a.navLink(href="/calendar") Calendar
+					#navBlue
+						#navJoinUs Join Us!
+						#navTime 10:30AM Sunday Service
+					#directions.
+						15 East Church St.
+						P.O. Box 731
+						Dillsburg, PA 17019
+						717.502.9993
+					a#directionsLink(href='https://www.google.com/maps/place/NewCreation+Brethren+Christ/@40.112247,-77.034958,17z/data=!3m1!4b1!4m2!3m1!1s0x89c8e5a1e6389539:0xa5da79375dd355cf' target='_blank') Directions
+				h1 Welcome to NewCreation
+				div
+					p.paragraph Were you raised in a religious environment? One with strict rules and rituals but no real sense of a personal relationship with Christ, church or community? At NewCreation, we focus on the practical and relevant aspects of our walk with Christ.  It's about coming together, as real people, no hard or fast rules or practiced responses, just plain talk about God's plan for our lives.  And, believe it or not, along the way we have a lot of fun.
+					p.paragraph What's more important is that we learn about you.  Join in, take what others have to give, give what you can offer, and together we will grow in faith.
+					p#bottomQuote "NewCreation Church exists to reach people from all walks of life for Jesus through worship, ministry, and relationships."
+		script.
+			Polymer({
+
+			});

@@ -1,0 +1,29 @@
+extends layout
+block head
+	link(rel='import' href=pathToPublic + 'bower_components/polymer/polymer.html')
+	script(src=pathToPublic + 'audiojs/audio.min.js')
+	//- link(rel='import' href=pathToViews + 'imported-element.html')
+
+block content
+	messages-page
+	polymer-element(name='messages-page' attributes='')
+		template
+			link(rel='stylesheet' href=pathToPublic + 'styles/page-style.css')
+			style.
+				.audio{
+					margin:20px;
+				}
+			.content
+				h2 Guess Who's Coming to Dinner (4)
+				audio.audio(controls)
+						source(src='/sermons/NCBICSermon2015_01_25.mp3' type='audio/mpeg')
+				//- audio(src='/sermons/NCBICSermon2015_01_25.mp3' preload='auto')
+
+		script.
+			Polymer({
+				created:function() {
+					audiojs.events.ready(function() {
+						var as = audiojs.createAll(this.shadowRoot.querySelectorAll('audio'));
+					}.bind(this));
+				}
+			});

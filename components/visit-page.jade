@@ -1,0 +1,133 @@
+extends layout
+block head
+	link(rel='import' href=pathToPublic + 'bower_components/polymer/polymer.html')
+	link(rel="import" href=pathToPublic + "bower_components/core-image/core-image.html")
+	link(rel="import" href=pathToPublic + "bower_components/core-image/core-image.html")
+	link(rel="import" href=pathToPublic + "bower_components/paper-radio-button/paper-radio-button.html")
+	link(rel="import" href=pathToPublic + "bower_components/paper-radio-group/paper-radio-group.html")
+	link(rel='import' href=pathToPublic + 'bower_components/flatiron-director/flatiron-director.html')
+	//- link(rel='import' href=pathToViews + 'imported-element.html')
+
+block content
+	visit-page
+	polymer-element(name='visit-page' attributes='')
+		template
+			link(rel='stylesheet' href=pathToPublic + 'styles/page-style.css')
+			style.
+				#navbar {
+					width:250px;
+				}
+				#navTitle {
+					font-weight:bold;
+				}
+				#navInfo {
+					font-style:italic;
+				}
+				.navLink {
+					font-size:14pt;
+					margin:10px 10px 10px 40px;
+				}
+				.navLink:before {
+					left:-25px;
+				}
+				.navLink[selected] {
+					color:#FF8F0D;
+				}
+				.navLink[selected]:before {
+					border-left: 10px solid #FF8F0D;
+				}
+				#image {
+					width:calc(100% - 294px);
+					height:300px;
+				}
+				#buttonChooser {
+					width:calc(100% - 294px);
+					display:flex;
+					justify-content:center;
+				}
+				paper-radio-group {
+					width:50%;
+					min-width:250px;
+					display:flex;
+					justify-content:space-around;
+				}
+				paper-radio-button::shadow #onRadio {
+					background-color: #2D46FF;
+				}
+				paper-radio-button[checked]::shadow #offRadio {
+					border-color: #2D46FF;
+				}
+				paper-radio-button::shadow #ink[checked] {
+					color: #2D46FF;
+				}
+				paper-radio-button::shadow #offRadio {
+					border-color: white;
+					background-color:white;
+				}
+			flatiron-director(route='{{evnt}}' autohash)
+			.content
+				#navbar
+					h2 Typical Order of Service
+					#navBlue
+						#navTitle Sunday service, 10:30 AM 
+						#navInfo (with complimentary breakfast style snacks and beverages served at 10:00 AM)
+					template(repeat='{{linkId in linkKeys}}')
+						a.navLink(href="/visit#{{linkId}}" selected?='{{linkId == evnt}}') {{links[linkId].title}}
+				core-image#image(src="/images/{{links[evnt].image}}" sizing='cover' preload fade position='50% 70%')
+				#buttonChooser
+					paper-radio-group(selected='{{evnt}}')
+						template(repeat='{{linkId in linkKeys}}')
+							paper-radio-button(name='{{linkId}}')
+				#blurb {{links[evnt].blurb}}
+		script.
+			Polymer({
+				links: {
+					'music':{
+						title:"Music",
+						image:"worship-hands.jpg",
+						blurb:"Each service begins and ends with contemporary style worship, an important part of our ministry, and includes an upbeat blend of songs you might hear on a contemporary Christian radio stations.  Every once in a while you might hear a new twist to an old secular song such as, \"Help, I Need Somebody\" by the Beatles or a spin-off of \"Sweet Home Alabama,\" appropriately renamed \"Sweet Home Up in Heaven.\" In all, our worship team creates a welcoming atmosphere that reaches people of all ages.",
+					},
+					'announcements':{
+						title:"Announcements",
+						image:"calendar.jpg",
+						blurb:"At one point in the service, you'll hear announcements of what's going on in the church.  This may include details about Bible studies, youth activities and other special events.",
+					},
+					'meetngreet':{
+						title:"Meet & Greet",
+						image:"people-collage.jpg",
+						blurb:"Maybe you've been there, sitting among strangers at a new church, wondering how to be invisible just long enough to get a taste of what the church is all about.  Then we hear it—\"Let's all stand and greet one another.\"  Ouch! We think you'll find NewCreation different.   Yes, we greet one another, but we don't believe in embarrassing our guests by asking them to raise their hand or to sign-up for anything.  Our desire is for you to feel at home.",
+					},
+					'offering':{
+						title:"Offering",
+						image:"poorman-coin.jpg",
+						blurb:"Just before the sermon, baskets are discreetly distributed for an offering.  We don't want to dismiss the importance of supporting the church and its ministries, but we'd never expect visitors to contribute.   Please don't feel obligated to give or embarrassed if you don't.",
+					},
+					'childrenschurch':{
+						title:"Children's Church",
+						image:"worship-hands.jpg",
+						blurb:"Children remain with a parent(s) until worship and general announcements conclude, and are then excused to the care of our dedicated Sunday School teachers.  See our Children's section to learn more about registering your child in this dynamic ministry.",
+					},
+					'pastorsmessage':{
+						title:"Pastor's Message",
+						image:"tape-recorder.jpg",
+						blurb:"The next 30 minutes is dedicated to Pastor Jerry's message. Practical, relevant, genuinely compassionate and sprinkled with humor, Jerry's teachings resonate with folks from all backgrounds and all walks of life.  For a sampling, listen to Pastor Jerry's messages.",
+					},
+					'wrapup':{
+						title:"Wrap Up",
+						image:"worship-hands.jpg",
+						blurb:"Pastor Jerry often provides an opportunity for questions and/or feedback.  Services then conclude with a closing prayer and more music.  Please feel free to say hello to Pastor Jerry and his wife Gloria as you exit the church or, as many of us do, hang around and chit chat.",
+					},
+				},
+				created: function() {
+					this.linkKeys = Object.keys(this.links);
+				},
+				ready:function() {
+					this.evnt = this.evnt || 'music';
+				},
+				evntChanged: function() {
+					if (this.evnt == 'music') {
+						this.image = '';
+						this.blurb = '';
+					}
+				}
+			});

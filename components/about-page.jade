@@ -1,0 +1,37 @@
+extends layout
+block head
+	link(rel='import' href=pathToPublic + 'bower_components/polymer/polymer.html')
+	//- link(rel='import' href=pathToViews + 'imported-element.html')
+block content
+	about-page
+	polymer-element(name='about-page' attributes='')
+		template
+			link(rel='stylesheet' href=pathToPublic + 'styles/page-style.css')
+			style.
+				h4 {
+					font-size:18pt;
+					color:#FF8F0D;
+				}
+				#logo {
+					float:right;
+					height:400px;
+				}
+			.content
+				img#logo(src='/images/bic_logo.jpg')
+				h4 What we believe: 
+				p.paragraph Jesus Christ is our Lord and Savior.
+				h4 What is our mission? 
+				p.paragraph NewCreation exists to reach people from all walks of life for Jesus through worship, ministry and relationships.
+				p.paragraph.
+					Beyond that, there's a lot to say about how we incorporate God's love and commandments into our daily lives. 
+					We won't bore you with a lot of theological details here but hope that you will visit us to see first hand what we believe and how we live our lives.
+				h4 The Brethren in Christ Church
+				p.paragraph NewCreation is a member of the Brethren in Christ Church (BIC) denomination. The BIC denomination had humble beginnings in Lancaster County, Pa.  Its roots included a simple lifestyle, dynamic faith and a sound Biblical theology.  The BIC place emphasis on relationships both in-and-outside the church community.   Brethren in Christ has grown significantly around the world using these simple principles, especially as it relates to those living in poverty, both spiritually and physically.
+				h4 Meet Pastor Jerry Stonge
+				p.paragraph Pastor Jerry is a man that knows and loves the Bible, and is committed to coming alongside people in their journeys. He enjoys using both humorous and personal illustrations that move people toward the practical applications of their faith.  In essence, Jerry's preaching style helps people to understand the context of the Scripture. 
+				p.paragraph Jerry is known for his outgoing personality, great sense of humor and compassion for others.  He uses his innate ability to surmise any situation or problem, and offers steps toward resolution based on Biblical principles and contemporary common sense.
+				p.paragraph Jerry and his wife Gloria have four adult children and two grandchildren.  The couple has worked together in ministry for 35 years, sharing the love of Christ throughout our community and beyond.
+		script.
+			Polymer({
+
+			});

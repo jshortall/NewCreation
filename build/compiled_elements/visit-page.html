@@ -1,0 +1,250 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content=""><meta name="viewport" content="width=device-width, initial-scale=1"><title>New Creation</title><link href="//fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css"><style>body {
+	//- background: #1e1c1d url(/images/cloth_background.png);
+	background: #1e1c1d url(/images/black-wood-background.jpg);
+	height: 100%;
+}
+#container {
+	width:100%;
+	height:100%;
+	box-sizing:border-box;
+	float:left;
+	background-image:radial-gradient(ellipse closest-side, rgba(255,255,255,0.8), rgba(255,255,255,0));
+}
+html /deep/ * {
+	margin: 0;
+	padding: 0;
+	font-family: 'Cabin', sans-serif;
+}
+a {
+	text-decoration: none;
+}
+a:link {color: #5264e7;}
+a:visited {color: #5264e7;}
+a:hover {color: #42AEE3;}
+a:active {color: #FF8F0D;}
+
+html /deep/ h1 {
+	font-family: 'Paytone One', sans-serif;
+	margin-bottom:30px;
+}
+#header {
+	height: 90px;
+	position: fixed;
+	width: 100%;
+	top:0;
+	left:0;
+	z-index:10;
+	//- background: url(/images/cloth_background.png);
+	background: url(/images/black-wood-background.jpg);
+	transform:translateZ(0);
+}
+#content {
+	margin-top:50px;
+	width:100%;
+	float:left;
+	position:relative;
+}
+#name {
+	margin: 30px 0 0 150px;
+	float: left;
+	color: white;
+}
+#logo {
+	position: absolute;
+	top: 0;
+	left: 20px;
+	height: 100px;
+	width:100px;
+	background-color:white;
+	color:#5264e7;
+	z-index: 2;
+}
+#logoN {
+	font-size:72pt;
+	font-weight:bold;
+	position:absolute;
+	top:-8px;
+	left:0;
+}
+#logoC {
+	font-size:50pt;
+	position:absolute;
+	right:0;
+	bottom:8px;
+}
+#menu {
+	display:flex;
+	justify-content:space-between;
+	width:380px;
+	float:right;
+	margin-top:30px;
+	margin-right:5px;
+}
+.menuItem {
+	color:#5264e7;
+	font-size:14pt;
+	text-decoration:none;
+}
+#showMoreMenu {
+	width:40px;
+	background-color:white;
+	height:20px;
+	text-align:center;
+	border:1px solid #5264e7;
+	cursor:pointer;
+	position:relative;
+}
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	display:inline-block;
+	margin-top:5px;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-top: 12px solid #5264e7;
+}
+#moreMenu {
+	position:absolute;
+	top:100%;
+	right:0;
+	border:1px solid #b1b1b1;
+	margin-top:1px;
+	margin-right:5px;
+	z-index:10;
+}
+#moreMenu .menuItem {
+	display:block;
+	background-color:white;
+	text-align:left;
+	padding:10px 15px 10px 15px;
+}
+#moreMenu .menuItem:not(:last-child) {
+	border-bottom:1px solid #b1b1b1;
+}
+#moreMenu .menuItem:hover {
+	background-color: #5264e7;
+	color:white;
+}
+.audiojs {
+	margin:200px;
+}</style><link rel="import" href="../bower_components/polymer/polymer.html"><link rel="import" href="../bower_components/core-image/core-image.html"><link rel="import" href="../bower_components/core-image/core-image.html"><link rel="import" href="../bower_components/paper-radio-button/paper-radio-button.html"><link rel="import" href="../bower_components/paper-radio-group/paper-radio-group.html"><link rel="import" href="../bower_components/flatiron-director/flatiron-director.html"><script src="../bower_components/platform/platform.js"></script><script src="../audiojs/audio.js"></script><script>// audiojs.events.ready(function() {
+	// var as = audiojs.createAll();
+// });</script><script>var menu = {
+	created : function() {
+		// window.addEventListener('click', function(){
+		// 	document.querySelector('#moreMenu').setAttribute('hidden', true);
+		// });
+	},
+	showMore : function(e) {
+		e = e || window.event;
+		var moreMenu = document.querySelector('#moreMenu');
+		if (moreMenu.getAttribute('hidden') != null) {
+			moreMenu.removeAttribute('hidden');
+		}
+		else {
+			moreMenu.setAttribute('hidden', true);
+		}
+		e.stopPropagation();
+	}
+}
+window.onload = menu.ready;
+menu.created();</script></head><body unresolved><div id="header"><a href="/home"><div id="logo"><div id="logoN">N</div><div id="logoC">C</div></div><h2 id="name">New Creation Church</h2></a><div id="menu"><a href="/home" class="menuItem">Home</a><a href="/visit" class="menuItem">Visit</a><a href="/messages" class="menuItem">Messages</a><a href="/calendar" class="menuItem">Calendar</a><a href="/about" class="menuItem">About</a></div></div><div id="container"><div id="content"><visit-page></visit-page><polymer-element name="visit-page" attributes=""><template><link rel="stylesheet" href="../styles/page-style.css"><style>#navbar {
+	width:250px;
+}
+#navTitle {
+	font-weight:bold;
+}
+#navInfo {
+	font-style:italic;
+}
+.navLink {
+	font-size:14pt;
+	margin:10px 10px 10px 40px;
+}
+.navLink:before {
+	left:-25px;
+}
+.navLink[selected] {
+	color:#FF8F0D;
+}
+.navLink[selected]:before {
+	border-left: 10px solid #FF8F0D;
+}
+#image {
+	width:calc(100% - 294px);
+	height:300px;
+}
+#buttonChooser {
+	width:calc(100% - 294px);
+	display:flex;
+	justify-content:center;
+}
+paper-radio-group {
+	width:50%;
+	min-width:250px;
+	display:flex;
+	justify-content:space-around;
+}
+paper-radio-button::shadow #onRadio {
+	background-color: #2D46FF;
+}
+paper-radio-button[checked]::shadow #offRadio {
+	border-color: #2D46FF;
+}
+paper-radio-button::shadow #ink[checked] {
+	color: #2D46FF;
+}
+paper-radio-button::shadow #offRadio {
+	border-color: white;
+	background-color:white;
+}</style><flatiron-director route="{{evnt}}" autohash></flatiron-director><div class="content"><div id="navbar"><h2>Typical Order of Service</h2><div id="navBlue"><div id="navTitle">Sunday service, 10:30 AM </div><div id="navInfo">(with complimentary breakfast style snacks and beverages served at 10:00 AM)</div></div><template repeat="{{linkId in linkKeys}}"><a href="/visit#{{linkId}}" selected?="{{linkId == evnt}}" class="navLink">{{links[linkId].title}}</a></template></div><core-image id="image" src="/images/{{links[evnt].image}}" sizing="cover" preload fade position="50% 70%"></core-image><div id="buttonChooser"><paper-radio-group selected="{{evnt}}"><template repeat="{{linkId in linkKeys}}"><paper-radio-button name="{{linkId}}"></paper-radio-button></template></paper-radio-group></div><div id="blurb">{{links[evnt].blurb}}</div></div></template><script>Polymer({
+	links: {
+		'music':{
+			title:"Music",
+			image:"worship-hands.jpg",
+			blurb:"Each service begins and ends with contemporary style worship, an important part of our ministry, and includes an upbeat blend of songs you might hear on a contemporary Christian radio stations.  Every once in a while you might hear a new twist to an old secular song such as, \"Help, I Need Somebody\" by the Beatles or a spin-off of \"Sweet Home Alabama,\" appropriately renamed \"Sweet Home Up in Heaven.\" In all, our worship team creates a welcoming atmosphere that reaches people of all ages.",
+		},
+		'announcements':{
+			title:"Announcements",
+			image:"calendar.jpg",
+			blurb:"At one point in the service, you'll hear announcements of what's going on in the church.  This may include details about Bible studies, youth activities and other special events.",
+		},
+		'meetngreet':{
+			title:"Meet & Greet",
+			image:"people-collage.jpg",
+			blurb:"Maybe you've been there, sitting among strangers at a new church, wondering how to be invisible just long enough to get a taste of what the church is all about.  Then we hear it—\"Let's all stand and greet one another.\"  Ouch! We think you'll find NewCreation different.   Yes, we greet one another, but we don't believe in embarrassing our guests by asking them to raise their hand or to sign-up for anything.  Our desire is for you to feel at home.",
+		},
+		'offering':{
+			title:"Offering",
+			image:"poorman-coin.jpg",
+			blurb:"Just before the sermon, baskets are discreetly distributed for an offering.  We don't want to dismiss the importance of supporting the church and its ministries, but we'd never expect visitors to contribute.   Please don't feel obligated to give or embarrassed if you don't.",
+		},
+		'childrenschurch':{
+			title:"Children's Church",
+			image:"worship-hands.jpg",
+			blurb:"Children remain with a parent(s) until worship and general announcements conclude, and are then excused to the care of our dedicated Sunday School teachers.  See our Children's section to learn more about registering your child in this dynamic ministry.",
+		},
+		'pastorsmessage':{
+			title:"Pastor's Message",
+			image:"tape-recorder.jpg",
+			blurb:"The next 30 minutes is dedicated to Pastor Jerry's message. Practical, relevant, genuinely compassionate and sprinkled with humor, Jerry's teachings resonate with folks from all backgrounds and all walks of life.  For a sampling, listen to Pastor Jerry's messages.",
+		},
+		'wrapup':{
+			title:"Wrap Up",
+			image:"worship-hands.jpg",
+			blurb:"Pastor Jerry often provides an opportunity for questions and/or feedback.  Services then conclude with a closing prayer and more music.  Please feel free to say hello to Pastor Jerry and his wife Gloria as you exit the church or, as many of us do, hang around and chit chat.",
+		},
+	},
+	created: function() {
+		this.linkKeys = Object.keys(this.links);
+	},
+	ready:function() {
+		this.evnt = this.evnt || 'music';
+	},
+	evntChanged: function() {
+		if (this.evnt == 'music') {
+			this.image = '';
+			this.blurb = '';
+		}
+	}
+});</script></polymer-element></div></div></body></html>

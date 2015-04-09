@@ -1,0 +1,159 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="description" content=""><meta name="viewport" content="width=device-width, initial-scale=1"><title>New Creation</title><link href="//fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css"><style>body {
+	//- background: #1e1c1d url(/images/cloth_background.png);
+	background: #1e1c1d url(/images/black-wood-background.jpg);
+	height: 100%;
+}
+#container {
+	width:100%;
+	height:100%;
+	box-sizing:border-box;
+	float:left;
+	background-image:radial-gradient(ellipse closest-side, rgba(255,255,255,0.8), rgba(255,255,255,0));
+}
+html /deep/ * {
+	margin: 0;
+	padding: 0;
+	font-family: 'Cabin', sans-serif;
+}
+a {
+	text-decoration: none;
+}
+a:link {color: #5264e7;}
+a:visited {color: #5264e7;}
+a:hover {color: #42AEE3;}
+a:active {color: #FF8F0D;}
+
+html /deep/ h1 {
+	font-family: 'Paytone One', sans-serif;
+	margin-bottom:30px;
+}
+#header {
+	height: 90px;
+	position: fixed;
+	width: 100%;
+	top:0;
+	left:0;
+	z-index:10;
+	//- background: url(/images/cloth_background.png);
+	background: url(/images/black-wood-background.jpg);
+	transform:translateZ(0);
+}
+#content {
+	margin-top:50px;
+	width:100%;
+	float:left;
+	position:relative;
+}
+#name {
+	margin: 30px 0 0 150px;
+	float: left;
+	color: white;
+}
+#logo {
+	position: absolute;
+	top: 0;
+	left: 20px;
+	height: 100px;
+	width:100px;
+	background-color:white;
+	color:#5264e7;
+	z-index: 2;
+}
+#logoN {
+	font-size:72pt;
+	font-weight:bold;
+	position:absolute;
+	top:-8px;
+	left:0;
+}
+#logoC {
+	font-size:50pt;
+	position:absolute;
+	right:0;
+	bottom:8px;
+}
+#menu {
+	display:flex;
+	justify-content:space-between;
+	width:380px;
+	float:right;
+	margin-top:30px;
+	margin-right:5px;
+}
+.menuItem {
+	color:#5264e7;
+	font-size:14pt;
+	text-decoration:none;
+}
+#showMoreMenu {
+	width:40px;
+	background-color:white;
+	height:20px;
+	text-align:center;
+	border:1px solid #5264e7;
+	cursor:pointer;
+	position:relative;
+}
+.arrow-down {
+	width: 0; 
+	height: 0; 
+	display:inline-block;
+	margin-top:5px;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-top: 12px solid #5264e7;
+}
+#moreMenu {
+	position:absolute;
+	top:100%;
+	right:0;
+	border:1px solid #b1b1b1;
+	margin-top:1px;
+	margin-right:5px;
+	z-index:10;
+}
+#moreMenu .menuItem {
+	display:block;
+	background-color:white;
+	text-align:left;
+	padding:10px 15px 10px 15px;
+}
+#moreMenu .menuItem:not(:last-child) {
+	border-bottom:1px solid #b1b1b1;
+}
+#moreMenu .menuItem:hover {
+	background-color: #5264e7;
+	color:white;
+}
+.audiojs {
+	margin:200px;
+}</style><link rel="import" href="../bower_components/polymer/polymer.html"><script src="../audiojs/audio.min.js"></script><script src="../bower_components/platform/platform.js"></script><script src="../audiojs/audio.js"></script><script>// audiojs.events.ready(function() {
+	// var as = audiojs.createAll();
+// });</script><script>var menu = {
+	created : function() {
+		// window.addEventListener('click', function(){
+		// 	document.querySelector('#moreMenu').setAttribute('hidden', true);
+		// });
+	},
+	showMore : function(e) {
+		e = e || window.event;
+		var moreMenu = document.querySelector('#moreMenu');
+		if (moreMenu.getAttribute('hidden') != null) {
+			moreMenu.removeAttribute('hidden');
+		}
+		else {
+			moreMenu.setAttribute('hidden', true);
+		}
+		e.stopPropagation();
+	}
+}
+window.onload = menu.ready;
+menu.created();</script></head><body unresolved><div id="header"><a href="/home"><div id="logo"><div id="logoN">N</div><div id="logoC">C</div></div><h2 id="name">New Creation Church</h2></a><div id="menu"><a href="/home" class="menuItem">Home</a><a href="/visit" class="menuItem">Visit</a><a href="/messages" class="menuItem">Messages</a><a href="/calendar" class="menuItem">Calendar</a><a href="/about" class="menuItem">About</a></div></div><div id="container"><div id="content"><messages-page></messages-page><polymer-element name="messages-page" attributes=""><template><link rel="stylesheet" href="../styles/page-style.css"><style>.audio{
+	margin:20px;
+}</style><div class="content"><h2>Guess Who's Coming to Dinner (4)</h2><audio controls class="audio"><source src="/sermons/NCBICSermon2015_01_25.mp3" type="audio/mpeg"></audio></div></template><script>Polymer({
+	created:function() {
+		audiojs.events.ready(function() {
+			var as = audiojs.createAll(this.shadowRoot.querySelectorAll('audio'));
+		}.bind(this));
+	}
+});</script></polymer-element></div></div></body></html>

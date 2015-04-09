@@ -1,0 +1,46 @@
+extends layout
+block head
+	link(rel='import' href=pathToPublic + 'bower_components/polymer/polymer.html')
+	script(src=pathToPublic + 'bower_components/jquery/dist/jquery.min.js')
+	script(src=pathToPublic + 'bower_components/moment/min/moment.min.js')
+	script(src=pathToPublic + 'bower_components/fullcalendar/dist/fullcalendar.min.js')
+	script(src=pathToPublic + 'bower_components/fullcalendar/dist/gcal.js')
+
+block content
+	calendar-page
+	polymer-element(name='calendar-page' attributes='')
+		template
+			link(rel='stylesheet' href=pathToPublic + 'bower_components/fullcalendar/dist/fullcalendar.min.css')
+			style.
+				#calendar {
+					width:90%;
+					margin:80px 5% 80px 5%;
+					background-color:white;
+					padding:10px;
+				}
+				a {
+					color:white;
+				}
+				.fc-event div.fc-content {
+					white-space:normal;
+				}
+			#calendar
+
+		script.
+			Polymer({
+				ready : function() {
+					$(this.$.calendar).fullCalendar({
+						header:{
+							left:'title prev,next today',
+							center:'',
+							right:'month,agendaWeek,agendaDay'
+						},
+						aspectRatio:2,
+						googleCalendarApiKey: 'AIzaSyDfMq9BJADutO-1nnAx6wJr4GNto3tlQ8U',
+						events: {
+							googleCalendarId: 'newcreationbic.org_mo649dgpe9ast9qoaqpvl7eso4@group.calendar.google.com',
+							backgroundColor:'#2D46FF'
+						}
+					});
+				}
+			});
