@@ -18,7 +18,7 @@
 	float: left;
 	padding: 10px;
 	margin-right: 20px;
-	width:151px;
+	width:200px;
 	height:100%;
 }
 .navLink {
@@ -26,20 +26,6 @@
 	font-weight: bold;
 	position:relative;
 	margin-left:26px;
-}
-.navLink:hover:before {
-	border-left: 10px solid #42AEE3;
-}
-.navLink:before {
-	content:'';
-	width: 0; 
-	height: 0; 
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	border-left: 10px solid #2D46FF;
-	position:absolute;
-	top:6px;
-	left:-18px;
 }
 #navBlue {
 	background-color: #2D46FF;
